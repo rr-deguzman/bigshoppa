@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>4th Quarter Project</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Lato&family=Mansalva&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+        <style>
+            body{
+    background-image: url("https://cdn-images-1.medium.com/max/1200/1*jPy3hZOW_-KLf5bPThQvwQ.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-attachment: fixed;
+}
+
+#orderOrder, #Marcuz, #Ryza, #Jollie{
+    display: none;
+}
+
+.itemList{
+    max-width: 90%;
+    margin: 0 auto;
+	font-family: 'Lato', sans-serif;
+}
+
+.shopItem{
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+	font-family: 'Lato', sans-serif;
+    height: 100%;
+}
+
+.item{
+    display: block;
+    max-width: 100%;
+    max-height: 100px;
+}
+
+.itemName{
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-bottom: solid 0.5px black;
+	font-family: 'Patrick Hand SC', cursive;
+}
+
+.shopcart{
+    background-color: rgb(255, 255, 255); /*test*/
+	font-family: 'Lato', sans-serif;
+}
+
+.fillout{
+    background-color: rgb(223, 223, 223); /*test*/
+	font-family: 'Lato', sans-serif;
+}
+
+.details{
+    width: 95%;
+    margin: 0 auto;
+	font-family: 'Lato', sans-serif;
+}
+
+header{
+    background-color: rgb(0,105,217);
+	font-family: 'Mansalva', cursive;
+	color: white;
+	text-shadow: 2px 2px #000000;
+}
+
+@media (max-width:768px) {
+
+    .title{
+        text-align: center;
+        padding: 0 !important;
+    }
+    a.abtcmny{
+        font-size: 16px !important;
+    }
+}
+
+h1{
+    word-wrap: break-word;	
+}
+
+.title{
+    padding: 0 0 0 50px;
+}
+a.abtcmny{
+    text-align: center;
+    font-size: 22px;
+    text-decoration: none;
+    color: black;
+	font-family: 'Patrick Hand SC', cursive;
+	color: white;
+}
+
+a.abtcmny:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+nav a{
+    display: block;
+	font-family: 'Lato', sans-serif;
+}
+
+.description{
+    margin-bottom: 0.1rem;
+    font-size: 0.8rem;
+    font-style: italic;
+	font-family: 'Lato', sans-serif;
+}
+
+.price{
+    margin-bottom: 0.5rem;
+	font-family: 'Lato', sans-serif;
+}
+
+.info{
+        background-image: url('https://images.theconversation.com/files/351878/original/file-20200810-22-przb4a.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop');
+		font-family: 'Patrick Hand SC', cursive;
+		color: black;
+		text-align:center;
+}
+
+h3{
+		text-shadow: 2px 2px #000000;
+		color: white;
+		font-size: 70px;
+}
+
+div.description{
+		font-family: 'Patrick Hand SC', cursive;
+		font-size: 30px;
+		color: white;
+		text-shadow: 2px 2px #000000;
+}
+
+        </style>
+
+    </head>
+    <body>
+        <header class="d-flex flex-wrap align-items-center">
+            <h1 class="title col-sm-9">Big Shoppa🛒</h1>
+            <div></div>
+            <a class="col-sm-3 abtcmny" href="#">About the Company</a>
+        </header>
+        <div class="info">
+            <div class="container">
+                <h3>Welcome to Big Shoppa!</h3>
+				<div class = "description">
+                <p>Browse through our new collection.</p>
+                <p>❗ Big discounts every week ❗</p>
+				</div>
+            </div>
+        </div>
+        <div class="itemList mt-3">
+            <nav class="d-flex justify-content-center mb-2">
+                <button onclick="changeCategory(`Josh`)" class="mx-1 btn btn-outline-light">Josh's Shop</button>
+                <button onclick="changeCategory(`Marcuz`)" class="mx-1 btn btn-outline-light">Marcuz's Shop</button>
+                <button onclick="changeCategory(`Ryza`)" class="mx-1 btn btn-outline-light">Ryza's Shop</button>
+                <button onclick="changeCategory(`Jollie`)" class="mx-1 btn btn-outline-light">Jollie's Shop</button>
+            </nav>
+            <div id="Josh">
+                <div class="row">
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Lobster</p>
+                            <img src="https://www.collinsdictionary.com/images/full/lobster_107132279.jpg" class="mx-auto item" alt="Lobster">
+                            <p class="description">a Classic</p>
+                            <p class="price">520 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Lobster`, 520, `a classic`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Cat Pictures</p>
+                            <img src="https://media.discordapp.net/attachments/789672041803677716/841958400988282901/catJAM.png" class="mx-auto item" alt="Cat Pic">
+                            <p class="description">Note: Singular Picture</p>
+                            <p class="price">20 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Cat Pictures`, 20, `very cute cat pics [only one cat pic]`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">[Unofficial] Sunglasses Mug</p>
+                            <img src="https://media.discordapp.net/attachments/758956274385420299/765844928579895346/this_will_be_earth.png" class="mx-auto item" alt="Sunglasses Mug">
+                            <p class="description">Drink in style 😎</p>
+                            <p class="price">300 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`[Unofficial] Sunglasses Mug`, 300, `very stylish mug, please don't remove`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Cat Video</p>
+                            <img src="https://media.discordapp.net/attachments/758956274385420299/758976054794125312/catJAM_gif.gif" class="mx-auto item" alt="Cat Video">
+                            <p class="description">100x better than a cat picture. Also 100x more expensive.</p>
+                            <p class="price">2000 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Cat Video`, 2000, `4k HD`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Blue Thing</p>
+                            <img src="https://www.gensh.in/fileadmin/Database/Items/Other/Fragile_Resin.png" class="mx-auto item" alt="Resin">
+                            <p class="description">This is definitely not a reference to something...</p>
+                            <p class="price">240 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Blue Thing`, 240, `it is a reference to something`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">List of Very Funny Jokes</p>
+                            <img src="https://media.discordapp.net/attachments/789672041803677716/841964841845260288/latest.png" class="mx-auto item" alt="Funny Jokes">
+                            <p class="description">Make your friends laugh with this latest edition funny joke list that will make anyone laugh!</p>
+                            <p class="price">10000 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`List of Very Funny Jokes`, 10000, `100% guarantee to make anyone laugh. Anyone`)">Order Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="Marcuz">
+                <div class="row">
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">JBL Bluetooth Speaker</p>
+                            <img src="https://www.jbl.com.ph/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwf687ad0f/JBL_Flip4_Black_Hero.png?sw=537&sfrm=png&fbclid=IwAR2a5__2YpJzFs_svzB94szCCCDyW-2EcOIhsBKp63WcYTNN4onrThOO3mQ" class="mx-auto item" alt="JBL Bluetooth Speaker">
+                            <p class="description">Connect your device to this speaker to make your audio louder.</p>
+                            <p class="price">2000 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`JBL Bluetooth Speaker`, 2000, `Connect your device to this speaker to make your audio louder!`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Kalimba</p>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7uTdv-9EdY1MkWWUNiUPgNE_9Am6uKtoOUQ&usqp=CAU&fbclid=IwAR28HgDH1RQk8nbnepf4h5sKVLkCZtmOOJuePxolAcV7wii7aRcr0pFMLS4" class="mx-auto item" alt="Kalimba">
+                            <p class="description">Perform melodious harmonies with one of these.</p>
+                            <p class="price">200 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Kalimba`, 200, `Perform melodious harmonies with one of these.`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Sticky Notes</p>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxhJvxaPkpCzEVe_3yRENMyfIiWvcYaNYusQ&usqp=CAU" class="mx-auto item" alt="Post-It Notes">
+                            <p class="description">Write down your notes, then stick them anywhere!</p>
+                            <p class="price">50 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Sticky Notes`, 50, `Write down your notes, then stick them anywhere!`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Fleece Blanket</p>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQiQECRd9X4_D6gr9GdEM7BARUTxrmtSlbA&usqp=CAU" class="mx-auto item" alt="Fleece Blanket">
+                            <p class="description">Be warm and comfortable anywhere with this blanket.</p>
+                            <p class="price">200 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Fleece Blanket`, 200, `Be warm and comfortable anywhere with this blanket.`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">LED Desk Lamp</p>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvsCM1o9DelDAjudyFyVBOEKxSUKSLY02SQw&usqp=CAU" class="mx-auto item" alt="LED Swing Desk Lamp">
+                            <p class="description">A light on your desk to help you see while accomplishing tasks.</p>
+                            <p class="price">500 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`LED Desk Lamp`, 500, `A light on your desk to help you see while accomplishing tasks.`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Uratex Fluff Pillow</p>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV-Bvg6ScZLL10NUv9A0nQGaPqDLydHueijA&usqp=CAU" class="mx-auto item" alt="Pillow">
+                            <p class="description">Snuggle up with this ultra soft and light pillow!</p>
+                            <p class="price">300 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Uratex Fluff Pillow`, 300, `Snuggle up with this ultra soft pillow!`)">Order Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Ryza">
+                <div class="row">
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">A5 Sketchbook</p>
+                            <img src="http://archbox.store/wp-content/uploads/2020/05/A5-Sketch-book-01.png" class="mx-auto item" alt="skecthbook">
+                            <p class="description">5.8in by 8.3in sketchbook with the finest quality paper for your sketches! (P.S. 50 sheets)</p>
+                            <p class="price">100 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`A5 Sketchbook`, 100, `5.8in by 8.3in sketchbook with the finest quality paper for your sketches!`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">0.5 Mechanical Pencil</p>
+                            <img src="https://antaris.ge/wp-content/uploads/2020/05/232504_Apollo-mechanical-pencil-0.5-mm-black_Office_57283.jpg" class="mx-auto item" alt="mechanical pencil">
+                            <p class="description">0.5 mechanical pencil that comes with 15pcs lead refill</p>
+                            <p class="price">195 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`0.5 Mechanical Pencil`, 195, `0.5 mechanical pencil that comes with 15pcs lead refill`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Washi Tape</p>
+                            <img src="https://cdn.notonthehighstreet.com/fs/ee/55/ba98-a2e2-4d08-a0b7-725a8a406914/original_washi-tape-set.jpg" class="mx-auto item" alt="washi tape">
+                            <p class="description">5pcs of simplistic washi tapes in a set</p>
+                            <p class="price">160 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Washi Tape`, 160, `5 simplistic washi tapes in a set`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Xiao Stickers</p>
+                            <img src="https://cdn.shopify.com/s/files/1/0522/5067/3328/products/XIAO-STICKERSHEET-PREVIEW3_d553faaa-ae84-4668-8aa4-6326a95c219a_1024x1024.jpg" class="mx-auto item" alt="xiao stickers">
+                            <p class="description">have some xiao stickers 'coz why not B')</p>
+                            <p class="price">250 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Xiao Stickers`, 250, `have some xiao stickers 'coz why not B')`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Dual-Purpose Eraser</p>
+                            <img src="https://images0.greatart.co.uk/out/pictures/generated/1500_1500/pboxx-pixelboxx-2661854/Faber-Castell+Dual+Purpose+Eraser.jpg" class="mx-auto item" alt="eraser">
+                            <p class="description">It's not too late to erase your mistakes!</p>
+                            <p class="price">75 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Dual-Purpose Eraser`, 75, `It's not too late to erase your mistakes!`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">24-pc Set Sharpie Markers</p>
+                            <img src="https://img1.etsystatic.com/047/0/9672239/il_fullxfull.667560725_cnyk.jpg" class="mx-auto item" alt="sharpie markers">
+                            <p class="description">24pcs of sharpie markers so you could give colors to your crush's life :'DDD</p>
+                            <p class="price">750 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`24-pc Set Sharpie Markers`, 750, `24 pieces of sharpie markers so you could give colors to your crush's life :'DDD`)">Order Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Jollie">
+                <div class="row">
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Dachshund Plush</p>
+                            <img src="https://i.ebayimg.com/images/g/l54AAOSwPe1UHfjy/s-l400.jpg" class="mx-auto item" alt="">
+                            <p class="description">Adorable Squishy Wiener puppy!</p>
+                            <p class="price">300 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Dachshund Plush`, 300, `Adorable Squishy Wiener puppy!`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Octopus Plush</p>
+                            <img src="https://img.joomcdn.net/f93f7d78ac68d17018353a56fb6adf92c1681105_original.jpeg" class="mx-auto item" alt="">
+                            <p class="description">Get this reversible cute octopus to match your mood. (Very small and can bring anywhere!)</p>
+                            <p class="price">100 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Octopus Plush`, 100, `Get this reversible cute octopus to match your mood. (Very small and can bring anywhere!)`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Sun and Moon Plush</p>
+                            <img src="https://sc04.alicdn.com/kf/H36ad5e0eca0d454aa856347ed79d61015.jpg" class="mx-auto item" alt="">
+                            <p class="description">Cute Smiling Sun and Moon 🌞🌛!</p>
+                            <p class="price">150 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Sun and Moon Plush`, 150 , `Cute Smiling Sun and Moon 🌞🌛!`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Life Sized Baymax Plush</p>
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/51UTqbLtdLL._AC_SL1001_.jpg" class="mx-auto item" alt="">
+                            <p class="description">This life sized marshmallow is 7 ft tall!  </p>
+                            <p class="price">700 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Life Sized Baymax Plush`, 700 , `This life sized marshmallow is 7 ft tall! `)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">SKZOO Quokka Plush</p>
+                            <img src="https://m.en.skzoostore.com/web/product/big/202102/f76fc237107989f1cefaa8931cad1aba.jpg" class="mx-auto item" alt="">
+                            <p class="description">Han Jisung from Stray Kids, but a quokka plushie. 1/8 of the SKZOO Collection.</p>
+                            <p class="price">350 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`SKZOO Quokka Plush`, 350 , `Han Jisung from Stray Kids, but a quokka plushie. 1/8 of the SKZOO Collection.`)">Order Item</button>
+                        </div>
+                    </div>
+                    <div class="col-sm px-1">
+                        <div class="shopItem">
+                            <p class="itemName">Coffee Cup Plush</p>
+                            <img src="https://i.pinimg.com/originals/84/d4/90/84d49036344a73eaf955e50146d7e49d.jpg" class="mx-auto item" alt="">
+                            <p class="description">Super adorable coffee plush 😍!</p>
+                            <p class="price">150 PHP</p>
+                            <button class="btn btn-primary mb-1" onclick="orderItem(`Coffee Cup Plush`, 150, `Super adorable coffee plush 😍!`)">Order Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="details row mb-3">
+            <div class="shopcart col-md-4 mt-2">
+                <h4 style="text-align: center;">Cart</h4>
+                <p style="text-align: center; margin: 0;">Current Total: <span id="priceTotal" style="font-weight: bold;">"order something"</span></p>
+                <hr style="margin: 0;">
+                <div class="shoppa">
+                    <div id="shoppingcart">
+                        "Nothing Here"
+                    </div>
+                </div>
+            </div>
+            <div class="fillout col-md-8 mt-2">
+                <h4 style="text-align: center;">Delivery Form</h4>
+                <form action="http://savantandsparktest.ml/checkout.php
+" method="POST" onsubmit="return submission()">
+                    <div class="row">
+                        <div class="col">
+                            <label for="orderName">Name</label>
+                            <input class="form-control" id="orderName" type="text" placeholder="Name" name="cust_name">
+                        </div>
+                        <div class="col">
+                            <label for="orderEmail">Email</label>               
+                            <input class="form-control" id="orderEmail" type="text" placeholder="Email" name="cust_email">
+                        </div>
+                    </div>
+                        <label for="orderAddress">Address [Full]</label>
+                        <input class="form-control mb-3" id="orderAddress" type="text" placeholder="Address" name="cust_addr">                                      
+                       
+                        <input id="orderOrder" type="text" name="cust_order">
+                        <input class="btn btn-primary" type="submit" value="Checkout">
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var cart = []
+
+var cartIndex = 0;
+const shopcart = document.getElementById('shoppingcart');
+const priceTotal = document.getElementById('priceTotal');
+var currentTotal = 0;
+
+function changeCategory(person){
+    document.getElementById('Josh').style.display = "none";
+    document.getElementById('Marcuz').style.display = "none";
+    document.getElementById('Ryza').style.display = "none";
+    document.getElementById('Jollie').style.display = "none";
+
+   return document.getElementById(person).style.display = "block";
+}
+
+function orderItem (name, price, desc){
+    cart[cartIndex] = {
+        prod_name: name,
+        prod_price: price
+    }
+
+    if (cartIndex == 0){shopcart.innerHTML = ""; priceTotal.innerHTML = ""}
+    shopcart.innerHTML +=`
+    <div id="cartvalue${cartIndex}" class="p-2 mb-1" style="border: 1px solid black;">
+        <span class="itemName" style="border: none; margin:0;">${name}</span><span class="description"> - ${desc}</span>
+        <p class="price">Price: <span style="font-weight: bold">${price} PHP</span></p>
+        <button onclick="removeItem(${cartIndex})" class="btn btn-danger" style="width:75px; font-size:8px">Remove Item</button>
+    </div>`
+    cartIndex++;
+
+    currentTotal += price;
+    priceTotal.innerHTML = currentTotal;
+
+}
+
+function removeItem(index){
+    const cartScreen = document.getElementById(`cartvalue${index}`)
+    delete cart[index].prod_name;
+    currentTotal -= cart[index].prod_price;
+    priceTotal.innerHTML = currentTotal;
+    delete cart[index].prod_price;
+    return cartScreen.style.display = "none";
+}
+
+function submission(){
+    console.log(`arrived`);
+    const orderName = document.getElementById(`orderName`);
+    const orderAddress = document.getElementById(`orderAddress`);
+    const orderEmail = document.getElementById(`orderEmail`);
+    const orderOrder = document.getElementById(`orderOrder`);
+    
+    for (x = 0; x < cart.length; x++){
+        if (cart[x].prod_name === undefined){
+            cart.splice(x, 1)
+            x--;
+        }
+    }
+
+    if (orderName.value == ""){
+        orderName.remove()
+    }
+    if (orderAddress.value == ""){
+        orderAddress.remove()
+    }
+    if (orderEmail.value == ""){
+        orderEmail.remove()
+    }
+    if(cart == ""){
+        console.log(`Nothing Passed`)
+        orderOrder.remove()
+    }
+    else{ 
+        orderOrder.value = JSON.stringify(cart);
+    }
+    // This is in order to return Nothing Passed into the PHP. A very nitpicky thing to do but oh well. One side-effect is disappearing inputs when you click on the submit button
+    
+
+    return true;
+}
+        </script>
+    </body>
+</html>
